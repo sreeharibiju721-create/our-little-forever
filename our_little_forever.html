@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#170f22">
+<title>Our Little Forever ♡</title>
+<style>
+:root{--rose:#f3a9c5;--cream:#fff0df;--wine:#6e294d;--night:#170f22}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse at 15% 10%,#59304f 0,transparent 38%),radial-gradient(ellipse at 85% 35%,#30264c 0,transparent 42%),var(--night);color:var(--cream);font-family:Georgia,'Times New Roman',serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.16;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:37px 37px}
+main{width:min(920px,92%);margin:auto}
+section{min-height:85vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:80px 12px;position:relative}
+.eyebrow{font:600 .72rem Arial,sans-serif;letter-spacing:.28em;text-transform:uppercase;color:var(--rose)}
+h1,h2{font-weight:400;line-height:1.12;margin:.45em 0}
+h1{font-size:clamp(3rem,9vw,6.8rem);color:#ffe8ef}
+h2{font-size:clamp(2.2rem,6vw,4rem);color:#ffd5e4}
+p{font-size:clamp(1.05rem,2.5vw,1.3rem);line-height:1.8;color:#f6dfe8;max-width:650px}
+.script{font-style:italic;color:var(--rose)}
+button{border:1px solid #e9a8c2;background:linear-gradient(135deg,#f2b2c9,#b96b91);color:#271322;padding:14px 25px;border-radius:99px;font:600 .95rem Arial,sans-serif;cursor:pointer;box-shadow:0 8px 28px #0005;transition:.2s}
+button:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.heart{font-size:2rem;color:#ffabc9;animation:pulse 1.8s infinite}
+@keyframes pulse{50%{transform:scale(1.18)}}
+.scroll{margin-top:50px;font: .75rem Arial,sans-serif;letter-spacing:.2em;color:#d8a9bd}
+.card{width:min(680px,100%);padding:30px 25px;border:1px solid #e9a8c255;border-radius:26px;background:linear-gradient(145deg,#ffffff12,#ffffff05);box-shadow:0 20px 70px #0004;backdrop-filter:blur(8px)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;width:min(720px,100%);margin-top:22px}
+.reason{min-height:120px;border:1px solid #e9a8c255;border-radius:20px;background:#ffffff0c;color:#ffe6ef;padding:20px 14px;font-size:1.05rem;line-height:1.5;cursor:pointer;display:grid;place-items:center}
+.reason span{display:block;color:#f2aac5;font-size:.72rem;font-family:Arial,sans-serif;letter-spacing:.12em;margin-bottom:8px}
+.timeline{display:grid;gap:14px;width:min(650px,100%);text-align:left;margin-top:20px}
+.moment{border-left:2px solid #e99fbd;padding:5px 0 12px 20px}
+.moment b{color:#ffc7dc;font-size:1.1rem;font-weight:400}
+.moment p{font-size:1rem;margin:5px 0}
+.hidden{display:none}
+footer{text-align:center;padding:30px 10px 60px;color:#d8a9bd;font-style:italic}
+#secret{margin-top:22px;white-space:pre-line}
+.floating{position:fixed;bottom:-30px;color:#f4a8c5;opacity:.55;animation:float 9s linear infinite;pointer-events:none}
+@keyframes float{to{transform:translateY(-110vh) rotate(35deg);opacity:0}}
+@media(max-width:520px){.grid{grid-template-columns:1fr 1fr}.reason{font-size:.95rem;min-height:110px}section{min-height:78vh}}
+
+#lockscreen{position:fixed;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;padding:22px;background:radial-gradient(ellipse at 50% 15%,#68405e,#170f22 72%);text-align:center}
+.lockbox{width:min(430px,100%);padding:34px 25px;border:1px solid #e9a8c277;border-radius:28px;background:#ffffff0d;box-shadow:0 25px 90px #0008;backdrop-filter:blur(12px)}
+.lockbox h1{font-size:clamp(2.5rem,10vw,4rem);margin:12px 0}
+.lockbox p{font-size:1rem;margin:12px auto 22px}
+#passcode{width:100%;padding:15px 18px;border-radius:99px;border:1px solid #e9a8c2;background:#fff0df;color:#402035;text-align:center;font-size:1.25rem;letter-spacing:.35em;outline:none;margin-bottom:14px}
+#passerror{min-height:22px;color:#ffc1d7;font: .85rem Arial,sans-serif;margin-top:12px}
+body.locked{overflow:hidden}
+
+</style>
+</head>
+<body class="locked">
+
+<div id="lockscreen">
+  <div class="lockbox">
+    <div class="heart">♡</div>
+    <div class="eyebrow">a little surprise awaits</div>
+    <h1>Just for <span class="script">you</span></h1>
+    <p>This little world is only for Mrs. Bones.<br>Enter our special code to unlock it. 🤍</p>
+    <form onsubmit="unlockSite(event)">
+      <input id="passcode" type="password" inputmode="numeric" maxlength="4" placeholder="••••" aria-label="Secret passcode" autocomplete="off">
+      <button type="submit">Unlock my surprise ♡</button>
+    </form>
+    <div id="passerror" aria-live="polite"></div>
+  </div>
+</div>
+
+<main>
+<section id="home">
+  <div class="eyebrow">a little universe made for you</div>
+  <div class="heart">♡</div>
+  <h1>Our Little<br><span class="script">Forever</span></h1>
+  <p>Hey, Baby. I made you a tiny place on the internet… just for you, just for us.</p>
+  <button onclick="document.querySelector('#story').scrollIntoView()">Come inside ♡</button>
+  <div class="scroll">SCROLL A LITTLE · THERE'S MORE</div>
+</section>
+
+<section id="story">
+  <div class="eyebrow">chapter one</div>
+  <h2>Somehow, it's <span class="script">you.</span></h2>
+  <div class="card">
+    <p>Out of all the people in this big world, I got lucky enough to find you. And now, even the ordinary little moments feel special because you're in them.</p>
+    <p class="script">Different places, same little world. ♡</p>
+  </div>
+</section>
+
+<section id="reasons">
+  <div class="eyebrow">chapter two</div>
+  <h2>Little reasons<br><span class="script">I adore you</span></h2>
+  <p>Tap a card, pretty girl. Each one has a tiny reminder.</p>
+  <div class="grid">
+    <button class="reason" onclick="reveal(this,'Your smile could turn my whole day around.')"><span>01 · TAP ME</span>Your smile ♡</button>
+    <button class="reason" onclick="reveal(this,'Even your random little stories are my favourite.')"><span>02 · TAP ME</span>Your little stories ♡</button>
+    <button class="reason" onclick="reveal(this,'You make distance feel a little less far.')"><span>03 · TAP ME</span>Your heart ♡</button>
+    <button class="reason" onclick="reveal(this,'Because being yours is my favourite thing.')"><span>04 · TAP ME</span>Simply you ♡</button>
+  </div>
+</section>
+
+<section id="hug">
+  <div class="eyebrow">chapter three</div>
+  <h2>Need a little<br><span class="script">love?</span></h2>
+  <div class="heart">♡</div>
+  <p>For the days I can't be right beside you…</p>
+  <button onclick="document.querySelector('#hugmessage').classList.toggle('hidden')">Press for a hug</button>
+  <p id="hugmessage" class="hidden script">Consider yourself wrapped in the biggest, warmest Mr. Bones hug. No escaping. 🤍</p>
+</section>
+
+<section id="letter">
+  <div class="eyebrow">one last thing</div>
+  <h2>For my <span class="script">Mrs. Bones</span></h2>
+  <div class="card">
+    <p>Baby, I know I can't always be there to hold your hand, steal your coffee or make you laugh in person. But I hope you never doubt how loved you are. If I had to choose all over again, in every version of this life, I'd still look for you. I'd still choose you.</p>
+    <p class="script">Here's to more memories, more silly moments, and a forever that belongs to us.</p>
+    <div class="heart">♡</div>
+    <p>All yours,<br><span class="script">Your Mr. Bones</span></p>
+  </div>
+  <button onclick="showSecret()">One tiny secret…</button>
+  <p id="secret" class="hidden script">Psst… you're my favourite notification, my favourite thought, and my favourite person. I love you. ♡</p>
+</section>
+<footer>made with a whole lot of love · Mr. Bones ♡ Mrs. Bones</footer>
+</main>
+<script>
+
+function unlockSite(event){
+  event.preventDefault();
+  const field=document.getElementById('passcode');
+  if(field.value==='1226'){
+    document.getElementById('lockscreen').style.display='none';
+    document.body.classList.remove('locked');
+    document.querySelector('#home').scrollIntoView();
+  }else{
+    document.getElementById('passerror').textContent='Oops, try our special number again, pretty girl ♡';
+    field.value='';
+    field.focus();
+  }
+}
+
+function reveal(el,msg){el.innerHTML='<span>JUST FOR YOU ♡</span>'+msg}
+function showSecret(){document.getElementById('secret').classList.toggle('hidden')}
+function floatHeart(){const h=document.createElement('div');h.className='floating';h.textContent=['♡','✧','♥'][Math.floor(Math.random()*3)];h.style.left=Math.random()*100+'vw';h.style.fontSize=(14+Math.random()*20)+'px';h.style.animationDuration=(7+Math.random()*6)+'s';document.body.appendChild(h);setTimeout(()=>h.remove(),14000)}
+setInterval(floatHeart,1100);
+</script>
+</body>
+</html>
